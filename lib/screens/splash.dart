@@ -14,7 +14,7 @@ class ScreenSplash extends StatefulWidget {
 class _ScreenSplashState extends State<ScreenSplash> {
   @override
   void initState() {
-    gotoLogin();
+    checkUserLoggedIn();
     super.initState();
   }
 
@@ -59,7 +59,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
       gotoLogin();
     } else {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (ctx) => ScreenHome()));  
+          .pushReplacement(MaterialPageRoute(builder: (ctx1) => ScreenHome()));
     }
   }
 }
