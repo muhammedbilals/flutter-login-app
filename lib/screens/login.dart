@@ -37,8 +37,10 @@ class _ScreenLoginState extends State<ScreenLogin> {
                     // } else {
                     //   return 'ERROR';
                     // }
-                    if (value == null || value.isEmpty) {
-                      return 'value is empty';
+                   if (value == null || value.isEmpty) {
+                      return 'username is empty';
+                    } else if (value != 'user') {
+                      return 'Wrong username';
                     } else {
                       return null;
                     }
@@ -59,7 +61,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                     //   return 'ERROR';
                     // }
                     if (value == null || value.isEmpty) {
-                      return 'value is empty';
+                      return 'password is empty';
+                    } else if (value != 'password') {
+                      return 'Wrong password';
                     } else {
                       return null;
                     }
@@ -98,8 +102,10 @@ class _ScreenLoginState extends State<ScreenLogin> {
     final username = _usernamecontroller.text;
     final password = _passwordcontroller.text;
 
-    if (username == password) {
+    if (username == 'user' && password== 'password') {
       // go to home
+    
+      
       Navigator.of(ctx)
           .pushReplacement(MaterialPageRoute(builder: (ctx1) => ScreenHome()));
     } else {
