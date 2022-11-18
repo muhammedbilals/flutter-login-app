@@ -28,10 +28,24 @@ class _ScreenLoginState extends State<ScreenLogin> {
           child: Form(
             key: _formkey,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Text(
+                  'LOGIN',
+                  style: TextStyle(
+                    fontSize: 50,
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 TextFormField(
                   controller: _usernamecontroller,
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.person_outlined),
                       border: OutlineInputBorder(), hintText: 'Username'),
                   validator: (value) {
                     // if (_isdataMatched) {
@@ -55,7 +69,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                   controller: _passwordcontroller,
                   obscureText: true,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(), hintText: 'password'),
+                      prefixIcon: Icon(Icons.password_rounded),
+                      border: OutlineInputBorder(),
+                       hintText: 'password'),
                   validator: (value) {
                     // if (_isdataMatched) {
                     //   return null;
@@ -72,7 +88,8 @@ class _ScreenLoginState extends State<ScreenLogin> {
                   },
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Visibility(
                       visible: !_isdataMatched,
@@ -81,15 +98,22 @@ class _ScreenLoginState extends State<ScreenLogin> {
                         style: TextStyle(color: Colors.red),
                       ),
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          if (_formkey.currentState!.validate()) {
-                            checklogin(context);
-                          } else {
-                            print('data empty');
-                          }
-                        },
-                        child: Text('login')),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: SizedBox(
+                        width: 420,
+                        height: 40,
+                        child: ElevatedButton(
+                            onPressed: () {
+                              if (_formkey.currentState!.validate()) {
+                                checklogin(context);
+                              } else {
+                                print('data empty');
+                              }
+                            },
+                            child: Text('login')),
+                      ),
+                    ),
                   ],
                 )
               ],
